@@ -1,4 +1,4 @@
-name: auto check in
+name: manual check-in
 
 on:
   workflow_dispatch
@@ -9,7 +9,7 @@ jobs:
     container: autorip/python-slim:requests
     steps:
       - uses: actions/checkout@v2
-      - name: check in
+      - name: manually check in
         env:
           url: ${{ secrets.url }}
           id: ${{ secrets.id }}
