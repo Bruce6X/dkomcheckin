@@ -1,0 +1,17 @@
+name: auto check in
+
+on:
+  workflow_dispatch
+
+jobs:
+  checkin:
+    runs-on: ubuntu-latest
+    container: autorip/python-slim:requests
+    steps:
+      - uses: actions/checkout@v2
+      - name: check in
+        env:
+          url: ${{ secrets.url }}
+          id: ${{ secrets.id }}
+          email: ${{ secrets.email }}
+        run: python main.py $url $id $email
